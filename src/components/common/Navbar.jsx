@@ -81,9 +81,7 @@ function Navbar() {
                             {subLinks
                               ?.map((subLink, i) => (
                                 <Link
-                                  to={`/catalog/${subLink.name
-                                    .split(" ")
-                                    .join("-")
+                                  to={`/catalog/${subLink.name?.split(" ")?.join("-")
                                     .toLowerCase()}`}
                                   className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
                                   key={i}
