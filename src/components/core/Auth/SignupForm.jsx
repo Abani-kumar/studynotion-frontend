@@ -8,6 +8,7 @@ import { sendOtp } from "../../../services/operations/authAPI";
 import { setSignupData } from "../../../slices/authSlice";
 import { ACCOUNT_TYPE } from "../../../utils/constants";
 import Tab from "../../common/Tab";
+import { Link } from "react-router-dom";
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -203,6 +204,10 @@ function SignupForm() {
           Create Account
         </button>
       </form>
+      <div className="mt-6 gap-2 flex items-center justify-center text-white">
+        <p className="text-richblack-100 ">Already have an account?</p>
+        <Link to="/login" className="underline">Login</Link>
+      </div>
     </div>
   );
 }

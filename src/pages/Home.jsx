@@ -66,7 +66,7 @@ function Home() {
           {/* Code Section 1  */}
           <div className=''>
             <CodeBlocks
-              position={"lg:flex-row"}
+              position={"sm:flex-col lg:flex-row"}
               heading={
                 <div className="text-4xl font-semibold">
                   Unlock your

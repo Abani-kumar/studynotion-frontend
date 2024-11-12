@@ -30,7 +30,8 @@ function LoginForm() {
   }
 
   return (
-    <form
+    <div>
+      <form
       onSubmit={handleOnSubmit}
       className="mt-6 flex w-full flex-col gap-y-4"
     >
@@ -90,6 +91,11 @@ function LoginForm() {
         Sign In
       </button>
     </form>
+    <div className="mt-6 gap-2 flex items-center justify-center text-white">
+        <p className="text-richblack-100 ">Don't have an account?</p>
+        <Link to="/signup" className="underline">Sign Up</Link>
+      </div>
+    </div>
   )
 }
 

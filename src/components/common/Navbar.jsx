@@ -125,9 +125,12 @@ function Navbar() {
               )}
             </Link>
           )}
-          {token === null && (
+          
+        </div>
+        <div className="flex md:gap-x-4">
+        {token === null && (
             <Link to="/login">
-              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className="hidden md:block rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
                 Log in
               </button>
             </Link>
@@ -141,9 +144,9 @@ function Navbar() {
           )}
           {token !== null && <ProfileDropdown />}
         </div>
-        <button className="mr-4 md:hidden">
+        {/* <button className="mr-4 md:hidden">
           <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-        </button>
+        </button> */}
       </div>
     </div>
   );
