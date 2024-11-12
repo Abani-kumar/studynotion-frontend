@@ -28,6 +28,7 @@ import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
 import PurchaseHistory from "./components/core/Dashboard/PurchaseHistory";
+import AllCourses from "./components/core/Dashboard/AllCourses";
 
 function App() {
   const dispatch = useDispatch();
@@ -112,6 +113,7 @@ function App() {
                 path="dashboard/enrolled-courses"
                 element={<EnrolledCourses />}
               />
+              <Route path="dashboard/all-courses" element={<AllCourses />} />
             </>
           )}
 

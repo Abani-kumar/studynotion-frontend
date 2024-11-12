@@ -38,7 +38,7 @@ function Navbar() {
   };
 
   useEffect(() => {
-    fetchSublinks()
+    fetchSublinks();
   }, []);
 
   const matchRoute = (route) => {
@@ -78,17 +78,18 @@ function Navbar() {
                           <p className="text-center">Loading...</p>
                         ) : subLinks.length ? (
                           <>
-                            {subLinks
-                              ?.map((subLink, i) => (
-                                <Link
-                                  to={`/catalog/${subLink.name?.split(" ")?.join("-")
-                                    .toLowerCase()}`}
-                                  className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
-                                  key={i}
-                                >
-                                  <p>{subLink.name}</p>
-                                </Link>
-                              ))}
+                            {subLinks?.map((subLink, i) => (
+                              <Link
+                                to={`/catalog/${subLink.name
+                                  ?.split(" ")
+                                  ?.join("-")
+                                  .toLowerCase()}`}
+                                className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
+                                key={i}
+                              >
+                                <p>{subLink.name}</p>
+                              </Link>
+                            ))}
                           </>
                         ) : (
                           <p className="text-center">No Courses Found</p>
@@ -114,6 +115,8 @@ function Navbar() {
           </ul>
         </nav>
         {/* Login / Signup / Dashboard */}
+
+        <div className="flex md:gap-x-4">
         <div className="hidden items-center gap-x-4 md:flex">
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
             <Link to="/dashboard/cart" className="relative">
@@ -127,8 +130,7 @@ function Navbar() {
           )}
           
         </div>
-        <div className="flex md:gap-x-4">
-        {token === null && (
+          {token === null && (
             <Link to="/login">
               <button className="hidden md:block rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
                 Log in

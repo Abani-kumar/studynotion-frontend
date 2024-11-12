@@ -30,7 +30,8 @@ export const getAllCourses = async () => {
   });
   let result = []
   try {
-    const response = await apiConnector("GET", GET_ALL_COURSE_API)
+    const response = await apiConnector("GET", GET_ALL_COURSE_API);
+    console.log("GET_ALL_COURSE_API API RESPONSE............", response);
     if (!response?.data?.success) {
       throw new Error("Could Not Fetch Course Categories")
     }
