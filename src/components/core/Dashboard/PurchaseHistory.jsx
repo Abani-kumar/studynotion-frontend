@@ -1,64 +1,40 @@
-import React from 'react'
-import { useState } from 'react';
-import { useSelector } from 'react-redux'
-import { getUserEnrolledCourses } from '../../../services/operations/profileAPI';
-import { useEffect } from 'react';
-import { formatDate } from '../../../services/formatDate';
+import React from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getUserEnrolledCourses } from "../../../services/operations/profileAPI";
+import { useEffect } from "react";
+import { formatDate } from "../../../services/formatDate";
 
 const PurchaseHistory = () => {
-    const{token} = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
 
-    const [enrolledCourses, setEnrolledCourses] = useState(null);
+  const [enrolledCourses, setEnrolledCourses] = useState(null);
 
-    const getEnrolledCourses = async () => {
-        try{
-            const res = await getUserEnrolledCourses(token);
-            setEnrolledCourses(res);
-            console.log("enrolledCourses",res);
-
-        } catch(error) {
-            console.log("Error in course fetching")
-        }
+  const getEnrolledCourses = async () => {
+    try {
+      const res = await getUserEnrolledCourses(token);
+      setEnrolledCourses(res);
+      console.log("enrolledCourses", res);
+    } catch (error) {
+      console.log("Error in course fetching");
     }
+  };
 
-    useEffect(() => {
-        getEnrolledCourses();
-    },[]);
-
-//   return (
-//     <div className='text-white'>
-//        {!enrolledCourses ? "Loading..." : !enrolledCourses.length ? "You have zero courses" : (
-//         <div>
-//             {enrolledCourses.map((course, index) => (
-//                 <div key={index}>
-//                     <div>
-//                         <div>
-//                             {course.courseName}
-//                         </div>
-//                         <div>{course.price}</div>
-//                         <div>{formatDate(course?.purchasedAt)}</div>
-//                     </div>
-//                 </div>
-                
-//             ))}
-//         </div>
-//        )}
-
-//        <div>
-       
-//        </div>
-//     </div>
-//   )
+  useEffect(() => {
+    getEnrolledCourses();
+  }, []);
 
   return (
     <>
-      <div className="text-3xl text-richblack-50">Purchase History</div>
+      <div className="text-3xl text-richblack-50 lg:p-4 p-1">
+        Purchase History
+      </div>
       {!enrolledCourses ? (
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
           <div className="spinner"></div>
         </div>
       ) : !enrolledCourses.length ? (
-        <p className="grid h-[10vh] w-full place-content-center text-richblack-5">
+        <p className="grid min-h-[50vh] w-full place-content-center text-richblack-5">
           You have not purchased any course yet.
         </p>
       ) : (
@@ -77,9 +53,7 @@ const PurchaseHistory = () => {
               }`}
               key={i}
             >
-              <div
-                className="flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3"
-              >
+              <div className="flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3">
                 <img
                   src={course.thumbnail}
                   alt="course_img"
@@ -98,7 +72,7 @@ const PurchaseHistory = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default PurchaseHistory
+export default PurchaseHistory;

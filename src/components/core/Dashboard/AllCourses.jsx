@@ -18,7 +18,7 @@ const AllCourses = () => {
   }, []);
   console.log(courses);
   return (
-    <div className=" max-h-[calc(100vh-3.5rem)] overflow-y-scroll  w-full flex flex-col mx-auto  text-white">
+    <div className=" max-h-[calc(100vh-3.5rem)] overflow-y-scroll lg:p-4 p-1  w-full flex flex-col mx-auto  text-white">
       <h1 className=" lg:text-3xl font-bold ">All Courses Of StudyNotion</h1>
       <div className="w-full mt-5">
        <CourseSlider Courses={courses} />

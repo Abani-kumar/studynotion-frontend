@@ -25,13 +25,13 @@ export default function EnrolledCourses() {
   
     return (
       <>
-        <div className="text-3xl text-richblack-50">Enrolled Courses</div>
+        <div className="text-3xl text-richblack-50 lg:p-4 p-1">Enrolled Courses</div>
         {!enrolledCourses ? (
           <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
             <div className="spinner"></div>
           </div>
         ) : !enrolledCourses.length ? (
-          <p className="grid h-[10vh] w-full place-content-center text-richblack-5">
+          <p className="grid min-h-[50vh] w-full place-content-center text-richblack-5">
             You have not enrolled in any course yet.
             {/* TODO: Modify this Empty State */}
           </p>
@@ -46,7 +46,7 @@ export default function EnrolledCourses() {
             {/* Course Names */}
             {enrolledCourses.map((course, i, arr) => (
               <div
-                className={`flex items-center border border-richblack-700 hover:scale-105 hover:transition-all ${
+                className={`flex items-center border border-richblack-700 hover:scale-100 hover:transition-all ${
                   i === arr.length - 1 ? "rounded-b-lg" : "rounded-none"
                 }`}
                 key={i}
